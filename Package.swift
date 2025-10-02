@@ -19,8 +19,7 @@ let package = Package(
     name: "FLEX",
     platforms: platforms,
     products: [
-        .library(name: "FLEX", targets: ["FLEX"]),
-        .library(name: "FLEXOnlyDebug", targets: ["FLEXOnlyDebug"])
+        .library(name: "FLEX", targets: ["FLEX"])
     ],
     targets: [
         .target(
@@ -37,15 +36,7 @@ let package = Package(
             ],
             publicHeadersPath: "Headers",
             cSettings: .headerSearchPaths + .warningFlags
-        ),
-        .target(
-            name: "FLEXOnlyDebug",
-            dependencies: [
-                .target(name: "FLEX", condition: .when(configuration: .debug))
-            ],
-            path: "Sources/FLEXOnlyDebug",
-            sources: ["."]
-        ),
+        )
     ],
     // Required to compile FLEXSwiftInternal.mm
     cxxLanguageStandard: .gnucxx11
