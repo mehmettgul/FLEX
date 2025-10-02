@@ -25,6 +25,9 @@ let package = Package(
         .target(
             name: "FLEX",
             path: "Classes",
+            swiftSettings: [
+                .define("DEBUG", .when(configuration: .debug))
+            ],
             exclude: [
                 "Info.plist",
                 "Utility/APPLE_LICENSE",
